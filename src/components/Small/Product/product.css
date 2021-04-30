@@ -1,0 +1,21 @@
+.product {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+
+.product > header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.product > header > h3 {
+  display: inline-block;
+  border-bottom: 1px solid black;
+}

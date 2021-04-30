@@ -1,0 +1,46 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { Menu, Segment, Sidebar } from "semantic-ui-react";
+
+import categories from "../../../datas/datas";
+
+const CategoriesMenu = ({ children, visible, setVisible, setCategorie }) => {
+  return (
+    <Sidebar.Pushable>
+      <Sidebar
+        as={Menu}
+        direction="left"
+        animation="overlay"
+        icon="labeled"
+        onHide={() => setVisible(false)}
+        inverted
+        vertical
+        visible={visible}
+        width="thin"
+      >
+        {categories.map((categorie) => (
+          <Link key={categorie.slug}
+            to={`/${categorie.slug}`}
+            onClick={() => setCategorie(categorie)}
+          >
+            <Menu.Item>
+              <Menu.Header>
+                <img
+                  style={{ width:"64px", color:"white" }}
+                  src={categorie.icon}
+                  alt={categorie.name}
+                />
+              </Menu.Header>
+              {categorie.name}
+            </Menu.Item>
+          </Link>
+        ))}
+      </Sidebar>
+      <Sidebar.Pusher dimmed={visible}>
+        <Segment basic>{children}</Segment>
+      </Sidebar.Pusher>
+    </Sidebar.Pushable>
+  );
+};
+
+export default CategoriesMenu;

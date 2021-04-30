@@ -1,0 +1,18 @@
+.first {
+  height: 100%;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.first > p {
+  width: 100%;
+  display: flex;
+  font-size: 1.2em;
+  flex-direction: column;
+  padding: 14px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
