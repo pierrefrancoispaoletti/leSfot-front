@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/leSfot-front/static/css/main.bad95277.chunk.css",
-    "main.js": "/leSfot-front/static/js/main.e200cb70.chunk.js",
-    "main.js.map": "/leSfot-front/static/js/main.e200cb70.chunk.js.map",
+    "main.js": "/leSfot-front/static/js/main.0af2d1d6.chunk.js",
+    "main.js.map": "/leSfot-front/static/js/main.0af2d1d6.chunk.js.map",
     "runtime-main.js": "/leSfot-front/static/js/runtime-main.007b3a2b.js",
     "runtime-main.js.map": "/leSfot-front/static/js/runtime-main.007b3a2b.js.map",
     "static/css/2.40c192b9.chunk.css": "/leSfot-front/static/css/2.40c192b9.chunk.css",
-    "static/js/2.ddb424ba.chunk.js": "/leSfot-front/static/js/2.ddb424ba.chunk.js",
-    "static/js/2.ddb424ba.chunk.js.map": "/leSfot-front/static/js/2.ddb424ba.chunk.js.map",
+    "static/js/2.6881fe14.chunk.js": "/leSfot-front/static/js/2.6881fe14.chunk.js",
+    "static/js/2.6881fe14.chunk.js.map": "/leSfot-front/static/js/2.6881fe14.chunk.js.map",
     "static/js/3.0f2c92f6.chunk.js": "/leSfot-front/static/js/3.0f2c92f6.chunk.js",
     "static/js/3.0f2c92f6.chunk.js.map": "/leSfot-front/static/js/3.0f2c92f6.chunk.js.map",
     "index.html": "/leSfot-front/index.html",
     "static/css/2.40c192b9.chunk.css.map": "/leSfot-front/static/css/2.40c192b9.chunk.css.map",
     "static/css/main.bad95277.chunk.css.map": "/leSfot-front/static/css/main.bad95277.chunk.css.map",
-    "static/js/2.ddb424ba.chunk.js.LICENSE.txt": "/leSfot-front/static/js/2.ddb424ba.chunk.js.LICENSE.txt",
+    "static/js/2.6881fe14.chunk.js.LICENSE.txt": "/leSfot-front/static/js/2.6881fe14.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/leSfot-front/static/media/outline-icons.ddae9b1b.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.007b3a2b.js",
     "static/css/2.40c192b9.chunk.css",
-    "static/js/2.ddb424ba.chunk.js",
+    "static/js/2.6881fe14.chunk.js",
     "static/css/main.bad95277.chunk.css",
-    "static/js/main.e200cb70.chunk.js"
+    "static/js/main.0af2d1d6.chunk.js"
   ]
 }
