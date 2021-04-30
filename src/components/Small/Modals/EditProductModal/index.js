@@ -137,6 +137,7 @@ const EditProductModal = ({
             <label>Prix</label>
             <input
               min={1}
+              step={0.1}
               value={editedProduct.price}
               name="price"
               type="number"

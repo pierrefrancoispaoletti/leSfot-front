@@ -157,6 +157,7 @@ const AddProductModal = ({
             <label>Prix</label>
             <input
               min={1}
+              step={0.1}
               value={product.price}
               name="price"
               type="number"

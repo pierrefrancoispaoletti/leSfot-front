@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "semantic-ui-react";
+import { Header, Icon } from "semantic-ui-react";
 import AdminCrudButtons from "../AdminCrudButtons";
 import "./product.css";
 
@@ -39,7 +39,7 @@ const Product = ({
         />
       )}
       <header>
-        <h3 style={{ color: titleColor }}>
+        <Header className="intitule" as="h2" style={{ color: titleColor }}>
           {(visibility ? "" : "Caché : ") + title}{" "}
           {image && (
             <Icon
@@ -50,19 +50,19 @@ const Product = ({
               }}
               name="search"
             />
-          )}{" "}
-        </h3>
-        <span style={{ color: titleColor }}>
-          {price} <small>€</small>
+          )}
+        </Header>
+        <span className="price" style={{ color: titleColor }}>
+          {price.toFixed(2)} <small>€</small>
         </span>
       </header>
       <main>
-        <p style={{ color: textColor }}>{description}</p>
+        <p className="description" style={{ color: textColor }}>{description}</p>
         {tag[1] && (
-          <p>
+          <p className="allergenes">
             <strong style={{ color: titleColor }}>Allergènes :</strong>{" "}
             {tag.map((t) => (
-              <span style={{ color: textColor }} key={t}>{` ${t} `}</span>
+              <span className="allergene" style={{ color: textColor }} key={t}>{` ${t} `}</span>
             ))}
           </p>
         )}

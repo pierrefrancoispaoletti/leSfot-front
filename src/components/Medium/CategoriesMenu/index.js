@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu, Segment, Sidebar } from "semantic-ui-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import categories from "../../../datas/datas";
 
@@ -25,11 +26,7 @@ const CategoriesMenu = ({ children, visible, setVisible, setCategorie }) => {
           >
             <Menu.Item>
               <Menu.Header>
-                <img
-                  style={{ width:"64px", color:"white" }}
-                  src={categorie.icon}
-                  alt={categorie.name}
-                />
+                <FontAwesomeIcon size="4x" style={categorie.style} icon={categorie.icon} />
               </Menu.Header>
               {categorie.name}
             </Menu.Item>

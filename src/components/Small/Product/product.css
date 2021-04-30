@@ -15,7 +15,23 @@
   justify-content: space-between;
 }
 
-.product > header > h3 {
+.intitule {
   display: inline-block;
   border-bottom: 1px solid black;
+}
+
+.price {
+  font-size: 1.3em;
+}
+
+.description {
+  font-size: 1.1em;
+}
+
+.allergenes {
+  font-size: 1.5em;
+}
+
+.allergene {
+  font-size: 1.1em;
 }
