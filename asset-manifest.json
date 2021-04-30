@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/leSfot-front/static/css/main.bad95277.chunk.css",
-    "main.js": "/leSfot-front/static/js/main.239f1b5f.chunk.js",
-    "main.js.map": "/leSfot-front/static/js/main.239f1b5f.chunk.js.map",
+    "main.js": "/leSfot-front/static/js/main.ee61f352.chunk.js",
+    "main.js.map": "/leSfot-front/static/js/main.ee61f352.chunk.js.map",
     "runtime-main.js": "/leSfot-front/static/js/runtime-main.007b3a2b.js",
     "runtime-main.js.map": "/leSfot-front/static/js/runtime-main.007b3a2b.js.map",
     "static/css/2.40c192b9.chunk.css": "/leSfot-front/static/css/2.40c192b9.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.40c192b9.chunk.css",
     "static/js/2.ddb424ba.chunk.js",
     "static/css/main.bad95277.chunk.css",
-    "static/js/main.239f1b5f.chunk.js"
+    "static/js/main.ee61f352.chunk.js"
   ]
 }
