@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Divider, Header } from "semantic-ui-react";
 import "./first.css";
+import leSoft from "./le-soft.jpg"
 
 const First = ({ titleColor, textColor, productBackgroundColor }) => {
   return (
@@ -10,7 +11,7 @@ const First = ({ titleColor, textColor, productBackgroundColor }) => {
         Le Soft Napoléon
       </Header>
       <Divider />
-      <img src="/assets/images/le-soft.jpg" alt="le soft" />
+      <img src={leSoft} alt="le soft" />
       <Divider />
       <Container
         style={{ color: textColor, background: productBackgroundColor }}

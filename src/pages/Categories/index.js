@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 import { Button, Container, Header } from "semantic-ui-react";
 import LoaderCSS from "../../components/Small/Loader";
 import Product from "../../components/Small/Product";
+import { $SERVER } from "../../_const/_const";
 import "./categorie.css";
 
 const Categories = ({
@@ -31,7 +32,7 @@ const Categories = ({
     setLoading(true);
     axios({
       method: "get",
-      url: `/api/products/${categorie}`,
+      url: `${$SERVER}/api/products/${categorie}`,
     })
       .then((response) => {
         setProducts(response.data.data);
@@ -46,7 +47,7 @@ const Categories = ({
       setLoading(true);
       axios({
         method: "delete",
-        url: `/api/products/deleteProduct`,
+        url: `${$SERVER}/api/products/deleteProduct`,
         data: {
           productId,
           productCategory,
@@ -70,7 +71,7 @@ const Categories = ({
       setLoading(true);
       axios({
         method: "post",
-        url: `/api/products/updateProduct`,
+        url: `${$SERVER}/api/products/updateProduct`,
         data: {
           update: newProduct,
           productId: product._id,

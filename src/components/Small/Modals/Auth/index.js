@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Header, Icon, Modal } from "semantic-ui-react";
+import { $SERVER } from "../../../../_const/_const";
 
 const Auth = ({
   setOpenLoginModal,
@@ -16,7 +17,7 @@ const Auth = ({
     setLoading(true);
     axios({
       method: "post",
-      url: `/auth/login`,
+      url: `${$SERVER}/auth/login`,
       data: {
         email,
         password,

@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button, Checkbox, Form, Header, Icon, Modal } from "semantic-ui-react";
 import allergenes from "../../../../datas/allergénes";
 import categories from "../../../../datas/datas";
+import { $SERVER } from "../../../../_const/_const";
 
 const AddProductModal = ({
   slug,
@@ -73,7 +74,7 @@ const AddProductModal = ({
       setLoading(true);
       axios({
         method: "post",
-        url: `/api/products/createProduct`,
+        url: `${$SERVER}/api/products/createProduct`,
         data: formData,
         headers: {
           "content-type": "multipart/form-data",

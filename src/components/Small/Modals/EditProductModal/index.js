@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Checkbox, Form, Header, Icon, Modal } from "semantic-ui-react";
 import allergenes from "../../../../datas/allergénes";
 import categories from "../../../../datas/datas";
+import { $SERVER } from "../../../../_const/_const";
 
 const EditProductModal = ({
   product,
@@ -59,7 +60,7 @@ const EditProductModal = ({
       setLoading(true);
       axios({
         method: "post",
-        url: `/api/products/updateProduct`,
+        url: `${$SERVER}/api/products/updateProduct`,
         data: {
           update: editedProduct,
           productId: _id,

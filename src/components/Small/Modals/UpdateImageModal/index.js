@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { Button, Form, Header, Icon, Modal } from "semantic-ui-react";
+import { $SERVER } from "../../../../_const/_const";
 
 const UpdateImageModal = ({
   openUpdateImageModal,
@@ -26,7 +27,7 @@ const UpdateImageModal = ({
       setLoading(true);
       axios({
         method: "post",
-        url: `/api/products/updateProductImage/${_id}/${category}`,
+        url: `${$SERVER}/api/products/updateProductImage/${_id}/${category}`,
         data: imageFormData,
         headers: {
           "content-type": "multipart/form-data",

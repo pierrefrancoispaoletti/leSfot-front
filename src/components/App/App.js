@@ -5,6 +5,7 @@ import { Message, Transition } from "semantic-ui-react";
 import Admin from "../../pages/Admin";
 import Categories from "../../pages/Categories";
 import First from "../../pages/First";
+import { $SERVER } from "../../_const/_const";
 import CategoriesMenu from "../Medium/CategoriesMenu";
 import TopAppBar from "../Medium/TopAppBar";
 import LoaderCSS from "../Small/Loader";
@@ -42,7 +43,7 @@ const App = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("/api/config")
+      .get(`${$SERVER}/api/config`)
       .then((response) => {
         setColorConfig(response.data.config);
       })

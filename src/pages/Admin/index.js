@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { CompactPicker } from "react-color";
 import { Divider, Header, Icon } from "semantic-ui-react";
+import { $SERVER } from "../../_const/_const";
 
 import "./admin.css";
 
@@ -29,7 +30,7 @@ const Admin = ({
     setColorConfig({ ...update });
     axios({
       method: "post",
-      url: "/api/config/update",
+      url: `${$SERVER}/api/config/update`,
       data: { update },
       headers: {
         Authorization: "Bearer " + token,
