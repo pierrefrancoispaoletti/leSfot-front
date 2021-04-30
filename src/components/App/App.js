@@ -36,10 +36,14 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setAppMessage({});
-    }, 5000);
+    if (Object.keys(appMessage).length !== 0) {
+      setTimeout(() => {
+        setAppMessage({});
+      }, 5000);
+    }
   }, [appMessage]);
+
+  console.log(products);
 
   useEffect(() => {
     setLoading(true);
@@ -60,7 +64,7 @@ const App = () => {
     setProductBackgroundColor(colorConfig.productBackgroundColor);
   }, [colorConfig]);
   return (
-    <div style={{ height: "100%", background: backgroundColor }}>
+    <div style={{ height: "100%" ,background: backgroundColor }}>
       {loading && (
         <div className="loadercontainer">
           <LoaderCSS />

@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 import "./filteringmenu.css";
 
@@ -34,6 +33,8 @@ const FilteringMenu = ({
         display: "flex",
         flexFlow: "row wrap",
         background: productBackgroundColor,
+        justifyContent: "center",
+        alignItems: "center"
       }}
     >
       {drinkCat[0].innerMenu.map((cat) => (

@@ -16,6 +16,7 @@ const ImageModal = ({ openImageModal, setOpenImageModal, product }) => {
   return (
     <Modal
       closeIcon
+      basic
       open={openImageModal}
       onClose={() => setOpenImageModal(false)}
     >
