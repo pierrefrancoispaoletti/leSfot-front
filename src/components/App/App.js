@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router";
 import { Message, Transition } from "semantic-ui-react";
+import categories from "../../datas/datas";
 import Admin from "../../pages/Admin";
 import Categories from "../../pages/Categories";
 import First from "../../pages/First";
@@ -131,6 +132,7 @@ const App = () => {
                   setOpenLoginModal={setOpenLoginModal}
                   setAppMessage={setAppMessage}
                   setProducts={setProducts}
+                  drinkCat={categories.filter((cat) => cat.slug === "boissons")}
                 />
                 <EditProductModal
                   openEditProductModal={openEditProductModal}
@@ -139,6 +141,7 @@ const App = () => {
                   setAppMessage={setAppMessage}
                   setProducts={setProducts}
                   product={selectedProduct}
+                  drinkCat={categories.filter((cat) => cat.slug === "boissons")}
                 />
                 <UpdateImageModal
                   openUpdateImageModal={openUpdateImageModal}

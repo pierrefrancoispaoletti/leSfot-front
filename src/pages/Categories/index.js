@@ -3,10 +3,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Button, Container, Header } from "semantic-ui-react";
+import { Button, Container, Divider, Header } from "semantic-ui-react";
+import FilteringMenu from "../../components/Small/FilteringMenu";
 import LoaderCSS from "../../components/Small/Loader";
 import Product from "../../components/Small/Product";
 import { $SERVER } from "../../_const/_const";
+import categories from "../../datas/datas";
 import "./categorie.css";
 
 const Categories = ({
@@ -27,6 +29,8 @@ const Categories = ({
   let { categorie } = useParams("categorie");
 
   const [loading, setLoading] = useState(false);
+
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -102,13 +106,44 @@ const Categories = ({
       <Header as="h2" style={{ color: titleColor }}>
         {name}
       </Header>
+      {categorie === "boissons" && (
+        <FilteringMenu
+          products={products}
+          setFilteredProducts={setFilteredProducts}
+          textColor={textColor}
+          titleColor={titleColor}
+          productBackgroundColor={productBackgroundColor}
+          drinkCat={categories.filter((cat) => cat.slug === "boissons")}
+        />
+      )}
+      <Divider />
       {loading && (
         <div className="loadercontainer">
           <LoaderCSS />
         </div>
       )}
       {!loading &&
+        categorie !== "boissons" &&
         products?.map((product) => (
+          <Product
+            key={product._id}
+            {...product}
+            user={user}
+            product={product}
+            handleDeleteProduct={handleDeleteProduct}
+            handleChangeVisibility={handleChangeVisibility}
+            setSelectedProduct={setSelectedProduct}
+            setOpenEditProductModal={setOpenEditProductModal}
+            setOpenUpdateImageModal={setOpenUpdateImageModal}
+            setOpenImageModal={setOpenImageModal}
+            titleColor={titleColor}
+            textColor={textColor}
+            productBackgroundColor={productBackgroundColor}
+          />
+        ))}
+      {!loading &&
+        categorie === "boissons" &&
+        filteredProducts?.map((product) => (
           <Product
             key={product._id}
             {...product}

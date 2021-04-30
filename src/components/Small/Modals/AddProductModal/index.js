@@ -1,7 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Checkbox, Form, Header, Icon, Modal } from "semantic-ui-react";
+import {
+  Button,
+  Checkbox,
+  Form,
+  Header,
+  Icon,
+  Modal,
+  Radio,
+} from "semantic-ui-react";
 import allergenes from "../../../../datas/allergénes";
 import categories from "../../../../datas/datas";
 import { $SERVER } from "../../../../_const/_const";
@@ -13,6 +21,7 @@ const AddProductModal = ({
   setOpenLoginModal,
   setProducts,
   setAppMessage,
+  drinkCat,
 }) => {
   const [product, setProduct] = useState({
     title: "",
@@ -24,7 +33,6 @@ const AddProductModal = ({
   });
 
   const [loading, setLoading] = useState(false);
-
   const inputFile = useRef(null);
 
   useEffect(() => {
@@ -44,7 +52,7 @@ const AddProductModal = ({
 
   const token = localStorage.getItem("token-le-Soft");
 
-  const onChange = (id, value) => {
+  const onChange = (value) => {
     const selectedCheckboxes = product.tag;
 
     // Find index
@@ -57,6 +65,14 @@ const AddProductModal = ({
     } else {
       selectedCheckboxes.push(value);
     }
+
+    setProduct({ ...product, tag: selectedCheckboxes });
+  };
+  const onChangeRadio = (value) => {
+    let selectedCheckboxes = product.tag;
+
+    selectedCheckboxes = [value];
+
 
     setProduct({ ...product, tag: selectedCheckboxes });
   };
@@ -140,20 +156,41 @@ const AddProductModal = ({
               onChange={(e) => changeProduct(e)}
             />
           </Form.Field>
-          <Form.Field>
-            <label>Allergènes</label>
-            {allergenes.map((allergene) => (
-              <Checkbox
-                style={{ padding: 5 }}
-                key={allergene.id}
-                label={allergene.value}
-                name={allergene.name}
-                value={allergene.value}
-                onChange={() => onChange(allergene.id, allergene.value)}
-                selected={product.tag?.includes(allergene.value)}
-              />
-            ))}
-          </Form.Field>
+          {slug !== "boissons" && (
+            <Form.Field>
+              <label>Allergènes</label>
+              {allergenes.map((allergene) => (
+                <Checkbox
+                  style={{ padding: 5 }}
+                  key={allergene.id}
+                  label={allergene.value}
+                  name={allergene.name}
+                  value={allergene.value}
+                  onChange={() => onChange(allergene.id, allergene.value)}
+                  selected={product.tag?.includes(allergene.value)}
+                />
+              ))}
+            </Form.Field>
+          )}
+          {slug === "boissons" && (
+            <Form.Field>
+              <label>Type de Boisson</label>
+              {drinkCat[0].innerMenu.map(
+                (cat) =>
+                  cat.categoryName !== "" && (
+                    <Radio
+                      style={{ padding: 5 }}
+                      key={cat.categoryName}
+                      label={cat.title}
+                      name={cat.categoryName}
+                      value={cat.categoryName}
+                      onChange={() => onChangeRadio(cat.categoryName)}
+                      checked={product.tag?.includes(cat.categoryName)}
+                    />
+                  )
+              )}
+            </Form.Field>
+          )}
           <Form.Field>
             <label>Prix</label>
             <input

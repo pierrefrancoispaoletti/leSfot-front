@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Checkbox, Form, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Checkbox, Form, Header, Icon, Modal, Radio } from "semantic-ui-react";
 import allergenes from "../../../../datas/allergénes";
 import categories from "../../../../datas/datas";
 import { $SERVER } from "../../../../_const/_const";
@@ -12,6 +12,7 @@ const EditProductModal = ({
   setOpenLoginModal,
   setAppMessage,
   setProducts,
+  drinkCat,
 }) => {
   const { _id, title, description, price, tag, category, image } = product;
 
@@ -52,6 +53,14 @@ const EditProductModal = ({
     }
 
     setEditedProduct({ ...editedProduct, tag: selectedCheckboxes });
+  };
+
+  const onChangeRadio = (value) => {
+    let selectedCheckboxes = product.tag;
+
+    selectedCheckboxes = [value];
+
+    setEditedProduct({ ...product, tag: selectedCheckboxes });
   };
 
   const handleSubmit = (e) => {
@@ -119,21 +128,42 @@ const EditProductModal = ({
               onChange={(e) => changeProduct(e)}
             />
           </Form.Field>
-          <Form.Field>
-            <label>Allergènes</label>
-            {allergenes.map((allergene) => (
-              <Checkbox
-                style={{ padding: 5 }}
-                key={allergene.id}
-                label={allergene.value}
-                name={allergene.name}
-                value={allergene.value}
-                onChange={(e) => onChange(allergene.value, e)}
-                selected={editedProduct.tag?.includes(allergene.value)}
-                checked={editedProduct.tag?.includes(allergene.value)}
-              />
-            ))}
-          </Form.Field>
+          {product.category !== "boissons" && (
+            <Form.Field>
+              <label>Allergènes</label>
+              {allergenes.map((allergene) => (
+                <Checkbox
+                  style={{ padding: 5 }}
+                  key={allergene.id}
+                  label={allergene.value}
+                  name={allergene.name}
+                  value={allergene.value}
+                  onChange={(e) => onChange(allergene.value, e)}
+                  selected={editedProduct.tag?.includes(allergene.value)}
+                  checked={editedProduct.tag?.includes(allergene.value)}
+                />
+              ))}
+            </Form.Field>
+          )}
+          {product.category === "boissons" && (
+            <Form.Field>
+              <label>Type de Boisson</label>
+              {drinkCat[0].innerMenu.map(
+                (cat) =>
+                  cat.categoryName !== "" && (
+                    <Radio
+                      style={{ padding: 5 }}
+                      key={cat.categoryName}
+                      label={cat.title}
+                      name={cat.categoryName}
+                      value={cat.categoryName}
+                      onChange={() => onChangeRadio(cat.categoryName)}
+                      checked={editedProduct.tag?.includes(cat.categoryName)}
+                    />
+                  )
+              )}
+            </Form.Field>
+          )}
           <Form.Field>
             <label>Prix</label>
             <input

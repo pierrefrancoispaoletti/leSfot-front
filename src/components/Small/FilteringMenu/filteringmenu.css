@@ -1,0 +1,40 @@
+.navigation {
+  overflow-x: auto;
+  padding: 8px 0px;
+  display: flex;
+  position: fixed;
+  top: 140px;
+}
+.navigation > ul {
+  padding: 0px 8px;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.navigation > ul > a > li {
+  width: 80px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.navigation > ul > a > li > .imgwrapper {
+  height: 45px;
+  width: 45px;
+  position: relative;
+}
+
+.navigation > ul > a > li > .imgwrapper > svg {
+    height: 100%;
+    width: 100%;
+}
+
+.navigation > ul > a>  li > span {
+  line-height: 16px;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+}

@@ -1,12 +1,20 @@
 import {
+  faBlender,
   faCocktail,
+  faCoffee,
   faCookieBite,
+  faEye,
+  faGlass,
   faGlassCheers,
+  faGlassMartini,
+  faGlassWhiskeyRocks,
   faHatChef,
+  faIceCream,
   faPizza,
   faSalad,
   faSteak,
   faStroopwafel,
+  faWineBottle,
 } from "@fortawesome/pro-duotone-svg-icons";
 
 const categories = [
@@ -74,10 +82,101 @@ const categories = [
     name: "Boissons",
     slug: "boissons",
     icon: faGlassCheers,
-    innerMenu: [],
+    innerMenu: [
+      {
+        title: "Tout Voir",
+        categoryName: "",
+        icon: faEye,
+        style: {
+          "--fa-primary-color": "chocolate",
+          "--fa-secondary-color": "burlywood",
+          "--fa-primary-opacity": 1,
+          "--fa-secondary-opacity": 1,
+        },
+      },
+      {
+        title: "Boissons Chaudes",
+        categoryName: "boissons chaudes",
+        icon: faCoffee,
+        style: {
+          "--fa-primary-color": "chocolate",
+          "--fa-secondary-color": "burlywood",
+          "--fa-primary-opacity": 1,
+          "--fa-secondary-opacity": 1,
+        },
+      },
+      {
+        title: "Vins",
+        categoryName: "vins",
+        icon: faWineBottle,
+        style: {
+          "--fa-primary-color": "darkred",
+          "--fa-secondary-color": "burlywood",
+          "--fa-primary-opacity": 1,
+          "--fa-secondary-opacity": 1,
+        },
+      },
+      {
+        title: "Softs",
+        categoryName: "softs",
+        icon: faGlass,
+        style: {
+          "--fa-primary-color": "chocolate",
+          "--fa-secondary-color": "burlywood",
+          "--fa-primary-opacity": 1,
+          "--fa-secondary-opacity": 1,
+        },
+      },
+      {
+        title: "Apéritifs",
+        categoryName: "aperitifs",
+        icon: faGlassMartini,
+        style: {
+          "--fa-primary-color": "chocolate",
+          "--fa-secondary-color": "burlywood",
+          "--fa-primary-opacity": 1,
+          "--fa-secondary-opacity": 1,
+        },
+      },
+      {
+        title: "Digestifs",
+        categoryName: "digestifs",
+        icon: faGlassWhiskeyRocks,
+        style: {
+          "--fa-primary-color": "chocolate",
+          "--fa-secondary-color": "burlywood",
+          "--fa-primary-opacity": 1,
+          "--fa-secondary-opacity": 1,
+        },
+      },
+    ],
     style: {
       "--fa-primary-color": "lightsteelblue",
       "--fa-secondary-color": "darkred",
+      "--fa-primary-opacity": 1,
+      "--fa-secondary-opacity": 1,
+    },
+  },
+  {
+    name: "Smoothies",
+    slug: "smoothies",
+    icon: faBlender,
+    innerMenu: [],
+    style: {
+      "--fa-primary-color": "lightsteelblue",
+      "--fa-secondary-color": "red",
+      "--fa-primary-opacity": 1,
+      "--fa-secondary-opacity": 1,
+    },
+  },
+  {
+    name: "Glaces",
+    slug: "glaces",
+    icon: faIceCream,
+    innerMenu: [],
+    style: {
+      "--fa-primary-color": "burlywood",
+      "--fa-secondary-color": "lightyellow",
       "--fa-primary-opacity": 1,
       "--fa-secondary-opacity": 1,
     },
