@@ -70,6 +70,9 @@ const App = () => {
     setEmail(colorConfig.emailAddress);
     setPhoneNumber(colorConfig.phoneNumber);
   }, [colorConfig]);
+
+  const date = new Date();
+  const currentHour = date.getHours();
   return (
     <div style={{ height: "100%", background: backgroundColor }}>
       {loading && (
@@ -85,7 +88,7 @@ const App = () => {
             visible={Object.keys(appMessage).length > 0}
           >
             <Message
-              style={{position: "fixed", zIndex:"1000", width:"100%"}}
+              style={{ position: "fixed", zIndex: "1000", width: "100%" }}
               hidden={Object.keys(appMessage).length === 0}
               success={appMessage.success ? true : false}
               error={!appMessage.success ? true : false}
@@ -94,6 +97,7 @@ const App = () => {
             </Message>
           </Transition>
           <CategoriesMenu
+            currentHour={currentHour}
             visible={visible}
             setVisible={setVisible}
             setCategorie={setCategorie}
