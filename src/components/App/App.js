@@ -35,6 +35,10 @@ const App = () => {
   const [productBackgroundColor, setProductBackgroundColor] = useState("");
   const [colorConfig, setColorConfig] = useState({});
   const [loading, setLoading] = useState(true);
+  const [facebookUrl, setFacebookUrl] = useState("");
+  const [instagramUrl, setInstagramUrl] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   useEffect(() => {
     if (Object.keys(appMessage).length !== 0) {
@@ -43,8 +47,6 @@ const App = () => {
       }, 5000);
     }
   }, [appMessage]);
-
-  console.log(products);
 
   useEffect(() => {
     setLoading(true);
@@ -63,9 +65,13 @@ const App = () => {
     setTextColor(colorConfig.textColor);
     setBackgroundColor(colorConfig.backgroundColor);
     setProductBackgroundColor(colorConfig.productBackgroundColor);
+    setFacebookUrl(colorConfig.facebookUrl);
+    setInstagramUrl(colorConfig.instagramUrl);
+    setEmail(colorConfig.emailAddress);
+    setPhoneNumber(colorConfig.phoneNumber);
   }, [colorConfig]);
   return (
-    <div style={{ height: "100vh" ,background: backgroundColor }}>
+    <div style={{ height: "100%", background: backgroundColor }}>
       {loading && (
         <div className="loadercontainer">
           <LoaderCSS />
@@ -79,6 +85,7 @@ const App = () => {
             visible={Object.keys(appMessage).length > 0}
           >
             <Message
+              style={{position: "fixed", zIndex:"1000", width:"100%"}}
               hidden={Object.keys(appMessage).length === 0}
               success={appMessage.success ? true : false}
               error={!appMessage.success ? true : false}
@@ -111,9 +118,18 @@ const App = () => {
                   productBackgroundColor={productBackgroundColor}
                 />
               </Route>
-              <Route exact path="/le-soft/admin">
+              <Route exact path="/le-soft/admin/">
                 {user === "isAdmin" ? (
                   <Admin
+                    setAppMessage={setAppMessage}
+                    facebookUrl={facebookUrl}
+                    setFacebookUrl={setFacebookUrl}
+                    instagramUrl={instagramUrl}
+                    setInstagramUrl={setInstagramUrl}
+                    email={email}
+                    setEmail={setEmail}
+                    phoneNumber={phoneNumber}
+                    setPhoneNumber={setPhoneNumber}
                     titleColor={titleColor}
                     setTitleColor={setTitleColor}
                     textColor={textColor}
@@ -179,7 +195,12 @@ const App = () => {
               </Route>
             </Switch>
             <Divider />
-            <Copyright />
+            <Copyright
+              facebookUrl={facebookUrl}
+              instagramUrl={instagramUrl}
+              email={email}
+              phoneNumber={phoneNumber}
+            />
             <Divider />
           </CategoriesMenu>
         </>
