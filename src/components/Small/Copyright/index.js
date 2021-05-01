@@ -38,7 +38,7 @@ const Copyright = ({facebookUrl, instagramUrl, email, phoneNumber}) => {
       <Divider />
       <div className="footer__copyright">
         {"Copyright © "}
-        <a href="#"> Le Soft Napoléon</a> {new Date().getFullYear()}
+        <a href="https://leSoft.fr"> Le Soft Napoléon</a> {new Date().getFullYear()}
         {"."}
       </div>
       <div className="footer__copyright">

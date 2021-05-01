@@ -22,6 +22,9 @@ const categories = [
     name: "Suggestions du Chef",
     slug: "suggestions",
     icon: faHatChef,
+    startHour: 11,
+    endHour: 15,
+    startSecond : 18,
     innerMenu: [],
     style: {
       "--fa-primary-color": "firebrick",
@@ -34,6 +37,9 @@ const categories = [
     name: "Pizzas",
     slug: "pizzas",
     icon: faPizza,
+    startHour: 11,
+    endHour: 15,
+    startSecond : 18,
     innerMenu: [],
     style: {
       "--fa-primary-color": "burlywood",
@@ -46,6 +52,9 @@ const categories = [
     name: "Salades",
     slug: "salades",
     icon: faSalad,
+    startHour: 11,
+    endHour: 15,
+    startSecond : 18,
     innerMenu: [],
     style: {
       "--fa-primary-color": "firebrick",
@@ -58,6 +67,9 @@ const categories = [
     name: "Viandes",
     slug: "viandes",
     icon: faSteak,
+    startHour: 11,
+    endHour: 15,
+    startSecond : 18,
     innerMenu: [],
     style: {
       "--fa-primary-color": "firebrick",
@@ -70,6 +82,8 @@ const categories = [
     name: "Desserts",
     slug: "desserts",
     icon: faCookieBite,
+    startHour: 0,
+    endHour: 23,
     innerMenu: [],
     style: {
       "--fa-primary-color": "chocolate",
@@ -82,6 +96,8 @@ const categories = [
     name: "Boissons",
     slug: "boissons",
     icon: faGlassCheers,
+    startHour: 0,
+    endHour: 23,
     innerMenu: [
       {
         title: "Tout Voir",
@@ -161,6 +177,8 @@ const categories = [
     name: "Smoothies",
     slug: "smoothies",
     icon: faBlender,
+    startHour: 0,
+    endHour: 23,
     innerMenu: [],
     style: {
       "--fa-primary-color": "lightsteelblue",
@@ -173,6 +191,8 @@ const categories = [
     name: "Glaces",
     slug: "glaces",
     icon: faIceCream,
+    startHour: 0,
+    endHour: 23,
     innerMenu: [],
     style: {
       "--fa-primary-color": "burlywood",
@@ -185,6 +205,8 @@ const categories = [
     name: "Cocktails",
     slug: "cocktails",
     icon: faCocktail,
+    startHour: 0,
+    endHour: 23,
     innerMenu: [],
     style: {
       "--fa-primary-color": "lightsteelblue",
@@ -197,6 +219,8 @@ const categories = [
     name: "Gauffres",
     slug: "gauffres",
     icon: faStroopwafel,
+    startHour: 15,
+    endHour: 17,
     innerMenu: [],
     style: {
       "--fa-primary-color": "chocolate",
@@ -209,6 +233,8 @@ const categories = [
     name: "Crêpes",
     slug: "crepes",
     icon: faStroopwafel,
+    startHour: 15,
+    endHour: 17,
     innerMenu: [],
     style: {
       "--fa-primary-color": "burlywood",
