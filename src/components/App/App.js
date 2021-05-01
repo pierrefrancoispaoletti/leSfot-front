@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router";
-import { Message, Transition } from "semantic-ui-react";
+import { Divider, Message, Transition } from "semantic-ui-react";
 import categories from "../../datas/datas";
 import Admin from "../../pages/Admin";
 import Categories from "../../pages/Categories";
@@ -9,6 +9,7 @@ import First from "../../pages/First";
 import { $SERVER } from "../../_const/_const";
 import CategoriesMenu from "../Medium/CategoriesMenu";
 import TopAppBar from "../Medium/TopAppBar";
+import Copyright from "../Small/Copyright";
 import LoaderCSS from "../Small/Loader";
 import AddProductModal from "../Small/Modals/AddProductModal";
 import Auth from "../Small/Modals/Auth";
@@ -64,7 +65,7 @@ const App = () => {
     setProductBackgroundColor(colorConfig.productBackgroundColor);
   }, [colorConfig]);
   return (
-    <div style={{ height: "100%" ,background: backgroundColor }}>
+    <div style={{ height: "100vh" ,background: backgroundColor }}>
       {loading && (
         <div className="loadercontainer">
           <LoaderCSS />
@@ -177,6 +178,9 @@ const App = () => {
                 />
               </Route>
             </Switch>
+            <Divider />
+            <Copyright />
+            <Divider />
           </CategoriesMenu>
         </>
       )}
