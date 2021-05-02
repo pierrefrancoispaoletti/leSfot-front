@@ -103,7 +103,7 @@ const Categories = ({
           color="green"
         />
       )}
-      <Header as="h2" style={{ color: titleColor, fontSize: "3em" }}>
+      <Header as="h2" style={{ color: titleColor, fontSize: "3em", border: `1px solid ${titleColor}`, background:productBackgroundColor}}>
         {name}
       </Header>
       {categorie === "boissons" && (
