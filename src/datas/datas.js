@@ -1,4 +1,5 @@
 import {
+  faBeer,
   faBlender,
   faCocktail,
   faCoffee,
@@ -136,6 +137,17 @@ const categories = [
         title: "Softs",
         categoryName: "softs",
         icon: faGlass,
+        style: {
+          "--fa-primary-color": "chocolate",
+          "--fa-secondary-color": "burlywood",
+          "--fa-primary-opacity": 1,
+          "--fa-secondary-opacity": 1,
+        },
+      },
+      {
+        title: "Bières",
+        categoryName: "bieres",
+        icon: faBeer,
         style: {
           "--fa-primary-color": "chocolate",
           "--fa-secondary-color": "burlywood",

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useEffect } from "react";
-import { Divider } from "semantic-ui-react";
+import { Divider, Header } from "semantic-ui-react";
 import AdminColor from "../../components/Medium/AdminColor";
 import AdminLinks from "../../components/Medium/AdminLinks";
 import { $SERVER } from "../../_const/_const";
@@ -77,7 +77,10 @@ const Admin = ({
     });
   };
   return (
-    <>
+      <>
+      <Header className="admin__header" style={{ color: titleColor, fontSize: "3em" }} as="h2">
+        Administration
+      </Header>
       <Divider />
       <AdminColor
         titleColor={titleColor}
