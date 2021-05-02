@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Divider, Header } from "semantic-ui-react";
 import "./first.css";
-import leSoft from "./le-soft.jpg"
+import leSoft from "./le-soft.jpg";
 
 const First = ({ titleColor, textColor, productBackgroundColor }) => {
   return (
-    <Container fluid className="first">
+    <Container className="first">
       <Divider />
       <Header as="h1" style={{ color: titleColor }}>
         Le Soft Napoléon

@@ -119,7 +119,7 @@ const Categories = ({
       <Divider />
       {loading && (
         <div className="loadercontainer">
-          <LoaderCSS />
+          <LoaderCSS textColor={textColor} titleColor={titleColor} />
         </div>
       )}
       {!loading &&

@@ -5,10 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import categories from "../../../datas/datas";
 
-const CategoriesMenu = ({ children, visible, setVisible, setCategorie }) => {
-  const date = new Date();
-  const currentHour = date.getHours();
-  // const currentHour = 18;
+const CategoriesMenu = ({
+  children,
+  visible,
+  setVisible,
+  setCategorie,
+  currentHour,
+}) => {
   return (
     <Sidebar.Pushable>
       <Sidebar

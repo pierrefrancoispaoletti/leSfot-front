@@ -1,19 +1,20 @@
 .topappbar {
-    padding: 8px;
-    border-bottom: 1px solid black;
-    display: flex !important;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid black;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
 }
-.topappbar > h1{
-    display: inline-block;
-    align-self: center;
-    vertical-align: middle;
-    margin-bottom: 3px !important;
+.topappbar > h1 {
+  display: inline-block;
+  align-self: center;
+  vertical-align: middle;
+  margin-bottom: 3px !important;
 }
 
 .topappbar > button {
-    margin-bottom: 3px !important;
-    margin: 0 6px 3px 6px;
+  margin-bottom: 3px !important;
+  margin: 0 6px 3px 6px;
 }

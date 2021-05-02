@@ -77,8 +77,12 @@ const Admin = ({
     });
   };
   return (
-      <>
-      <Header className="admin__header" style={{ color: titleColor, fontSize: "3em" }} as="h2">
+    <>
+      <Header
+        className="admin__header"
+        style={{ color: titleColor, fontSize: "3em" }}
+        as="h2"
+      >
         Administration
       </Header>
       <Divider />

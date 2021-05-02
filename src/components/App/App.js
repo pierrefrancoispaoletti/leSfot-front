@@ -77,7 +77,7 @@ const App = () => {
     <div style={{ height: "100%", background: backgroundColor }}>
       {loading && (
         <div className="loadercontainer">
-          <LoaderCSS />
+          <LoaderCSS titleColor={titleColor} textColor={textColor} />
         </div>
       )}
       {!loading && (
@@ -106,6 +106,9 @@ const App = () => {
               user={user}
               setVisible={setVisible}
               setOpenLoginModal={setOpenLoginModal}
+              titleColor={titleColor}
+              textColor={textColor}
+              productBackgroundColor={productBackgroundColor}
             />
             <Auth
               openLoginModal={openLoginModal}
