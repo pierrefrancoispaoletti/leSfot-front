@@ -16,3 +16,8 @@
   border-radius: 8px;
   margin-bottom: 5px;
 }
+
+.first > h1 {
+  padding: 8px !important;
+  border-radius: 8px;
+}

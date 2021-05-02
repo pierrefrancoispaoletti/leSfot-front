@@ -207,6 +207,9 @@ const App = () => {
               instagramUrl={instagramUrl}
               email={email}
               phoneNumber={phoneNumber}
+              textColor={textColor}
+              backgroundColor={backgroundColor}
+              productBackgroundColor={productBackgroundColor}
             />
             <Divider />
           </CategoriesMenu>

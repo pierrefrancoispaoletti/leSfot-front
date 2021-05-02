@@ -9,7 +9,15 @@ import React from "react";
 import { Divider, Header } from "semantic-ui-react";
 
 import "./copyright.css";
-const Copyright = ({ facebookUrl, instagramUrl, email, phoneNumber }) => {
+const Copyright = ({
+  facebookUrl,
+  instagramUrl,
+  email,
+  phoneNumber,
+  backgroundColor,
+  productBackgroundColor,
+  textColor,
+}) => {
   return (
     <div className="footer">
       <div>
@@ -17,10 +25,24 @@ const Copyright = ({ facebookUrl, instagramUrl, email, phoneNumber }) => {
       </div>
       <div className="footer__icons">
         <a target="_blank" href={facebookUrl} rel="noreferrer">
-          <FontAwesomeIcon style={{color: "#3B5998", background:"white", borderRadius: "100%"}} size="3x" icon={faFacebook} pull="left" />
+          <FontAwesomeIcon
+            style={{
+              color: "#3B5998",
+              background: "white",
+              borderRadius: "100%",
+            }}
+            size="3x"
+            icon={faFacebook}
+            pull="left"
+          />
         </a>
         <a target="_blank" href={instagramUrl} rel="noreferrer">
-          <FontAwesomeIcon style={{color: "#3F729B", borderRadius: "100%"}} size="3x" icon={faInstagram} pull="right" />
+          <FontAwesomeIcon
+            style={{ color: "#3F729B", borderRadius: "100%" }}
+            size="3x"
+            icon={faInstagram}
+            pull="right"
+          />
         </a>
       </div>
       <Divider />
@@ -61,10 +83,21 @@ const Copyright = ({ facebookUrl, instagramUrl, email, phoneNumber }) => {
         {new Date().getFullYear()}
         {"."}
       </div>
-      <div className="footer__copyright">
-        <a color="inherit" href="mailto:pef@alvp-developments.com">
-          {"Made by ALVP-Developments Ajaccio"}
-          <FontAwesomeIcon color="darkred" icon={faHeart} size="2x" />
+      <div
+        className="footer__alvp"
+        style={{
+          background: `linear-gradient(to right, ${backgroundColor}, ${productBackgroundColor})`,
+        }}
+      >
+        <a style={{ color: textColor }} href="mailto:pef@alvp-developments.com">
+          Made with
+          <FontAwesomeIcon
+            className="alvp__icon"
+            color="darkred"
+            icon={faHeart}
+            size="2x"
+          />
+          by ALVP-Developments Ajaccio
         </a>
       </div>
     </div>

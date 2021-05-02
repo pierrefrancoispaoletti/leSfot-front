@@ -7,8 +7,16 @@ const First = ({ titleColor, textColor, productBackgroundColor }) => {
   return (
     <Container className="first">
       <Divider />
-      <Header as="h1" style={{ color: titleColor }}>
-        Le Soft Napoléon
+      <Header
+        as="h1"
+        style={{
+          color: titleColor,
+          fontSize: "2.5em",
+          border: `1px solid ${titleColor}`,
+          background: productBackgroundColor,
+        }}
+      >
+        Le Soft
       </Header>
       <Divider />
       <img src={leSoft} alt="le soft" />
