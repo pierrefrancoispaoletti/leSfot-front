@@ -19,6 +19,7 @@ const First = ({ titleColor, textColor, productBackgroundColor }) => {
         Le Soft
       </Header>
       <Divider />
+
       <img src={leSoft} alt="le soft" />
       <Divider />
       <Container

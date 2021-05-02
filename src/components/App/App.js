@@ -1,21 +1,21 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router";
 import { Divider, Message, Transition } from "semantic-ui-react";
 import categories from "../../datas/datas";
-import Admin from "../../pages/Admin";
-import Categories from "../../pages/Categories";
-import First from "../../pages/First";
 import { $SERVER } from "../../_const/_const";
 import CategoriesMenu from "../Medium/CategoriesMenu";
 import TopAppBar from "../Medium/TopAppBar";
 import Copyright from "../Small/Copyright";
 import LoaderCSS from "../Small/Loader";
-import AddProductModal from "../Small/Modals/AddProductModal";
 import Auth from "../Small/Modals/Auth";
-import EditProductModal from "../Small/Modals/EditProductModal";
-import ImageModal from "../Small/Modals/ImageModal";
-import UpdateImageModal from "../Small/Modals/UpdateImageModal";
+const First = lazy(() => import("../../pages/First"));
+const UpdateImageModal = lazy(() => import("../Small/Modals/UpdateImageModal"));
+const ImageModal = lazy(() => import("../Small/Modals/ImageModal"));
+const AddProductModal = lazy(() => import("../Small/Modals/AddProductModal"));
+const EditProductModal = lazy(() => import("../Small/Modals/EditProductModal"));
+const Categories = lazy(() => import("../../pages/Categories"));
+const Admin = lazy(() => import("../../pages/Admin"));
 
 const App = () => {
   const [visible, setVisible] = useState(false);
@@ -116,91 +116,110 @@ const App = () => {
               setUser={setUser}
               setAppMessage={setAppMessage}
             />
-            <Switch>
-              <Route exact path="/">
-                <First
-                  user={user}
-                  titleColor={titleColor}
-                  textColor={textColor}
-                  productBackgroundColor={productBackgroundColor}
-                />
-              </Route>
-              <Route exact path="/le-soft/admin/">
-                {user === "isAdmin" ? (
-                  <Admin
-                    setAppMessage={setAppMessage}
-                    facebookUrl={facebookUrl}
-                    setFacebookUrl={setFacebookUrl}
-                    instagramUrl={instagramUrl}
-                    setInstagramUrl={setInstagramUrl}
-                    email={email}
-                    setEmail={setEmail}
-                    phoneNumber={phoneNumber}
-                    setPhoneNumber={setPhoneNumber}
+            <Suspense
+              fallback={
+                <div
+                  style={{
+                    display: "flex",
+                    height: "100vh",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <LoaderCSS titleColor={titleColor} textColor={textColor} />
+                </div>
+              }
+            >
+              <Switch>
+                <Route exact path="/">
+                  <First
+                    user={user}
                     titleColor={titleColor}
-                    setTitleColor={setTitleColor}
                     textColor={textColor}
-                    setTextColor={setTextColor}
-                    backgroundColor={backgroundColor}
-                    setBackgroundColor={setBackgroundColor}
                     productBackgroundColor={productBackgroundColor}
-                    setProductBackgroundColor={setProductBackgroundColor}
-                    colorConfig={colorConfig}
-                    setColorConfig={setColorConfig}
                   />
-                ) : (
-                  <Redirect to="/" />
-                )}
-              </Route>
-              <Route path="/:categorie">
-                <AddProductModal
-                  {...categorie}
-                  openAddProductModal={openAddProductModal}
-                  setOpenAddProductModal={setOpenAddProductModal}
-                  setOpenLoginModal={setOpenLoginModal}
-                  setAppMessage={setAppMessage}
-                  setProducts={setProducts}
-                  drinkCat={categories.filter((cat) => cat.slug === "boissons")}
-                />
-                <EditProductModal
-                  openEditProductModal={openEditProductModal}
-                  setOpenEditProductModal={setOpenEditProductModal}
-                  setOpenLoginModal={setOpenLoginModal}
-                  setAppMessage={setAppMessage}
-                  setProducts={setProducts}
-                  product={selectedProduct}
-                  drinkCat={categories.filter((cat) => cat.slug === "boissons")}
-                />
-                <UpdateImageModal
-                  openUpdateImageModal={openUpdateImageModal}
-                  setOpenUpdateImageModal={setOpenUpdateImageModal}
-                  product={selectedProduct}
-                  setProducts={setProducts}
-                  setOpenLoginModal={setOpenLoginModal}
-                  setAppMessage={setAppMessage}
-                />
-                <ImageModal
-                  setOpenImageModal={setOpenImageModal}
-                  openImageModal={openImageModal}
-                  product={selectedProduct}
-                />
-                <Categories
-                  {...categorie}
-                  products={products}
-                  user={user}
-                  setOpenAddProductModal={setOpenAddProductModal}
-                  setOpenEditProductModal={setOpenEditProductModal}
-                  setOpenUpdateImageModal={setOpenUpdateImageModal}
-                  setOpenImageModal={setOpenImageModal}
-                  setOpenLoginModal={setOpenLoginModal}
-                  setProducts={setProducts}
-                  setSelectedProduct={setSelectedProduct}
-                  titleColor={titleColor}
-                  textColor={textColor}
-                  productBackgroundColor={productBackgroundColor}
-                />
-              </Route>
-            </Switch>
+                </Route>
+                <Route exact path="/le-soft/admin/">
+                  {user === "isAdmin" ? (
+                    <Admin
+                      setAppMessage={setAppMessage}
+                      facebookUrl={facebookUrl}
+                      setFacebookUrl={setFacebookUrl}
+                      instagramUrl={instagramUrl}
+                      setInstagramUrl={setInstagramUrl}
+                      email={email}
+                      setEmail={setEmail}
+                      phoneNumber={phoneNumber}
+                      setPhoneNumber={setPhoneNumber}
+                      titleColor={titleColor}
+                      setTitleColor={setTitleColor}
+                      textColor={textColor}
+                      setTextColor={setTextColor}
+                      backgroundColor={backgroundColor}
+                      setBackgroundColor={setBackgroundColor}
+                      productBackgroundColor={productBackgroundColor}
+                      setProductBackgroundColor={setProductBackgroundColor}
+                      colorConfig={colorConfig}
+                      setColorConfig={setColorConfig}
+                    />
+                  ) : (
+                    <Redirect to="/" />
+                  )}
+                </Route>
+                <Route path="/:categorie">
+                  <AddProductModal
+                    {...categorie}
+                    openAddProductModal={openAddProductModal}
+                    setOpenAddProductModal={setOpenAddProductModal}
+                    setOpenLoginModal={setOpenLoginModal}
+                    setAppMessage={setAppMessage}
+                    setProducts={setProducts}
+                    drinkCat={categories.filter(
+                      (cat) => cat.slug === "boissons"
+                    )}
+                  />
+                  <EditProductModal
+                    openEditProductModal={openEditProductModal}
+                    setOpenEditProductModal={setOpenEditProductModal}
+                    setOpenLoginModal={setOpenLoginModal}
+                    setAppMessage={setAppMessage}
+                    setProducts={setProducts}
+                    product={selectedProduct}
+                    drinkCat={categories.filter(
+                      (cat) => cat.slug === "boissons"
+                    )}
+                  />
+                  <UpdateImageModal
+                    openUpdateImageModal={openUpdateImageModal}
+                    setOpenUpdateImageModal={setOpenUpdateImageModal}
+                    product={selectedProduct}
+                    setProducts={setProducts}
+                    setOpenLoginModal={setOpenLoginModal}
+                    setAppMessage={setAppMessage}
+                  />
+                  <ImageModal
+                    setOpenImageModal={setOpenImageModal}
+                    openImageModal={openImageModal}
+                    product={selectedProduct}
+                  />
+                  <Categories
+                    {...categorie}
+                    products={products}
+                    user={user}
+                    setOpenAddProductModal={setOpenAddProductModal}
+                    setOpenEditProductModal={setOpenEditProductModal}
+                    setOpenUpdateImageModal={setOpenUpdateImageModal}
+                    setOpenImageModal={setOpenImageModal}
+                    setOpenLoginModal={setOpenLoginModal}
+                    setProducts={setProducts}
+                    setSelectedProduct={setSelectedProduct}
+                    titleColor={titleColor}
+                    textColor={textColor}
+                    productBackgroundColor={productBackgroundColor}
+                  />
+                </Route>
+              </Switch>
+            </Suspense>
             <Divider />
             <Copyright
               facebookUrl={facebookUrl}
