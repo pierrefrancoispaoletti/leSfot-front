@@ -24,7 +24,7 @@ const categories = [
     slug: "suggestions",
     icon: faHatChef,
     startHour: 11,
-    endHour: 15,
+    endHour: 14,
     startSecond : 18,
     innerMenu: [],
     style: {
@@ -39,7 +39,7 @@ const categories = [
     slug: "pizzas",
     icon: faPizza,
     startHour: 11,
-    endHour: 15,
+    endHour: 14,
     startSecond : 18,
     innerMenu: [],
     style: {
@@ -54,7 +54,7 @@ const categories = [
     slug: "salades",
     icon: faSalad,
     startHour: 11,
-    endHour: 15,
+    endHour: 14,
     startSecond : 18,
     innerMenu: [],
     style: {
@@ -69,7 +69,7 @@ const categories = [
     slug: "viandes",
     icon: faSteak,
     startHour: 11,
-    endHour: 15,
+    endHour: 14,
     startSecond : 18,
     innerMenu: [],
     style: {
