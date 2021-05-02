@@ -1,6 +1,13 @@
 import axios from "axios";
-import React, { useRef, useState } from "react";
-import { Button, Form, Header, Icon, Modal } from "semantic-ui-react";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Button,
+  Container,
+  Form,
+  Header,
+  Icon,
+  Modal,
+} from "semantic-ui-react";
 import { $SERVER } from "../../../../_const/_const";
 
 const UpdateImageModal = ({
@@ -16,7 +23,23 @@ const UpdateImageModal = ({
 
   const updateFile = useRef(null);
 
-  const { _id, category, title } = product;
+  const { _id, category, title, image: productImage } = product;
+
+  const handleChangeImage = (image) => {
+    let showimage = document.querySelector(".showimage");
+    let reader = new FileReader();
+    if (showimage) {
+      reader.onload = () => {
+        showimage.src = reader.result;
+      };
+      reader.readAsDataURL(image);
+    }
+  };
+  useEffect(() => {
+    if (image) {
+      handleChangeImage(image);
+    }
+  }, [image]);
 
   const handleSubmitImage = (e) => {
     e.preventDefault();
@@ -37,10 +60,20 @@ const UpdateImageModal = ({
         .then((response) => {
           if (response && response.data.status === 200) {
             setProducts(response.data.data);
-            setAppMessage(response.data.message);
+            setAppMessage({
+              success: response.data.status === 200 ? true : false,
+              message: response.data.message,
+            });
           } else {
-            setAppMessage(response.data.message);
+            setAppMessage({
+              success: response.data.status === 200 ? true : false,
+              message: response.data.message,
+            });
           }
+        })
+        .then(() => {
+          setOpenUpdateImageModal(false);
+          setImage("");
         })
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
@@ -49,6 +82,50 @@ const UpdateImageModal = ({
       setOpenLoginModal(true);
     }
   };
+
+  const handleDeleteImage = () => {
+    const token = localStorage.getItem("token-le-Soft");
+    if (token) {
+      setLoading(true);
+      axios({
+        method: "post",
+        url: `${$SERVER}/api/products/updateProduct`,
+        data: {
+          update: { image: "" },
+          productId: _id,
+          productCategory: category,
+        },
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+        .then((response) => {
+          setProducts(response.data.data);
+          setAppMessage({
+            success: response.data.status === 200 ? true : false,
+            message: "Image supprimée avec succés",
+          });
+        })
+        .catch((error) => console.log(error))
+        .finally(() => {
+          setLoading(false);
+          setOpenUpdateImageModal(false);
+        });
+    } else {
+      setOpenUpdateImageModal(false);
+      setOpenLoginModal(true);
+    }
+  };
+
+  const arrayBufferToBase64 = (buffer) => {
+    let binary = "";
+    const bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => (binary += String.fromCharCode(b)));
+    return window.btoa(binary);
+  };
+
+  const base64Flag = `data:${productImage?.contentType};base64,`;
+  const imageStr = arrayBufferToBase64(productImage?.data?.data);
   return (
     <Modal
       open={openUpdateImageModal}
@@ -58,6 +135,16 @@ const UpdateImageModal = ({
         <Icon name="image" />
         Editer l'image
       </Header>
+      {(productImage || image) && (
+        <Container>
+          <img
+            className="showimage"
+            style={{ width: "100%", height: "100%" }}
+            src={base64Flag + imageStr}
+            alt={title}
+          />
+        </Container>
+      )}
       <Modal.Content>
         <Form onSubmit={handleSubmitImage} id="editImage-form">
           <Form.Field>
@@ -83,12 +170,33 @@ const UpdateImageModal = ({
       </Modal.Content>
       <Modal.Actions>
         {image && (
-          <Button color="green" type="submit" form="editImage-form" inverted>
+          <Button
+            loading={loading}
+            disabled={loading}
+            color="green"
+            type="submit"
+            form="editImage-form"
+            inverted
+          >
             <Icon name="add" /> Envoyer l'image pour {title}
+          </Button>
+        )}
+        {productImage && (
+          <Button
+            loading={loading}
+            disabled={loading}
+            type="button"
+            color="red"
+            form="editImage-form"
+            inverted
+            onClick={handleDeleteImage}
+          >
+            <Icon name="delete" /> Supprimer l'image pour {title}
           </Button>
         )}
         <Button
           loading={loading}
+          disabled={loading}
           color="red"
           type="submit"
           form="editImage-form"
