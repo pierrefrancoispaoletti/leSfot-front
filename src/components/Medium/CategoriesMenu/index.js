@@ -11,6 +11,7 @@ const CategoriesMenu = ({
   setVisible,
   setCategorie,
   currentHour,
+  user,
 }) => {
   return (
     <Sidebar.Pushable>
@@ -28,11 +29,11 @@ const CategoriesMenu = ({
         {categories.map((categorie) => (
           <Link
             style={
-              (currentHour >= categorie.startHour &&
+              ((currentHour >= categorie.startHour &&
                 currentHour <= categorie.endHour) ||
-              currentHour >= categorie.startSecond
+                currentHour >= categorie.startSecond)
                 ? { visibility: "visible" }
-                : { display: "none" }
+                : !user ? { display: "none" } : {visibility: "visible"}
             }
             key={categorie.slug}
             to={`/${categorie.slug}`}

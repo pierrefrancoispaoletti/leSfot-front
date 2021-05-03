@@ -124,7 +124,7 @@ const Categories = ({
       )}
       {!loading &&
         categorie !== "boissons" &&
-        products?.map((product) => (
+        products?.sort((a,b) => a.price - b.price).map((product) => (
           <Product
             key={product._id}
             {...product}
@@ -143,7 +143,7 @@ const Categories = ({
         ))}
       {!loading &&
         categorie === "boissons" &&
-        filteredProducts?.map((product) => (
+        filteredProducts?.sort((a,b) => a.price - b.price).map((product) => (
           <Product
             key={product._id}
             {...product}

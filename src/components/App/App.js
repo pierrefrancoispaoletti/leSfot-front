@@ -97,6 +97,7 @@ const App = () => {
             </Message>
           </Transition>
           <CategoriesMenu
+            user={user}
             currentHour={currentHour}
             visible={visible}
             setVisible={setVisible}

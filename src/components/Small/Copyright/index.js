@@ -89,7 +89,7 @@ const Copyright = ({
           background: `linear-gradient(to right, ${backgroundColor}, ${productBackgroundColor})`,
         }}
       >
-        <a style={{ color: textColor }} href="mailto:pef@alvp-developments.com">
+        <a style={{ color: textColor, fontSize:"0.9em" }} href="mailto:pef@alvp-developments.com">
           Made with
           <FontAwesomeIcon
             className="alvp__icon"

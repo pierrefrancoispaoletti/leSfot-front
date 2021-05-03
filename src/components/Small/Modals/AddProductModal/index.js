@@ -166,7 +166,7 @@ const AddProductModal = ({
                   label={allergene.value}
                   name={allergene.name}
                   value={allergene.value}
-                  onChange={() => onChange(allergene.id, allergene.value)}
+                  onChange={() => onChange(allergene.value)}
                   selected={product.tag?.includes(allergene.value)}
                 />
               ))}
