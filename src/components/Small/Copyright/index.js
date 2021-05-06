@@ -17,11 +17,14 @@ const Copyright = ({
   backgroundColor,
   productBackgroundColor,
   textColor,
+  titleColor,
 }) => {
   return (
     <div className="footer">
       <div>
-        <Header>Retrouvez nous sur : </Header>
+        <Header as="h3" style={{ color: titleColor }}>
+          Retrouvez nous sur :{" "}
+        </Header>
       </div>
       <div className="footer__icons">
         <a target="_blank" href={facebookUrl} rel="noreferrer">
@@ -47,7 +50,9 @@ const Copyright = ({
       </div>
       <Divider />
       <div>
-        <Header>Contactez nous ! </Header>
+        <Header as="h3" style={{ color: titleColor }}>
+          Contactez nous !{" "}
+        </Header>
       </div>
       <div className="footer__icons">
         <a href={`mailto:${email}`}>
@@ -77,9 +82,9 @@ const Copyright = ({
         </a>
       </div>
       <Divider />
-      <div className="footer__copyright">
+      <div className="footer__copyright" style={{color: titleColor}}>
         {"Copyright © "}
-        <a href="https://leSoft.fr"> Le Soft Napoléon</a>{" "}
+        <a style={{color: textColor}} href="https://leSoft.fr"> Le Soft Napoléon</a>{" "}
         {new Date().getFullYear()}
         {"."}
       </div>
@@ -89,7 +94,10 @@ const Copyright = ({
           background: `linear-gradient(to right, ${backgroundColor}, ${productBackgroundColor})`,
         }}
       >
-        <a style={{ color: textColor, fontSize:"0.9em" }} href="mailto:pef@alvp-developments.com">
+        <a
+          style={{ color: textColor, fontSize: "0.9em" }}
+          href="mailto:pef@alvp-developments.com"
+        >
           Made with
           <FontAwesomeIcon
             className="alvp__icon"

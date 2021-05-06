@@ -4,6 +4,7 @@
   align-items: center;
   margin: auto;
   padding: 10px;
+  font-family: 'Josefin Sans', sans-serif !important;
 }
 
 .footer {
@@ -15,6 +16,13 @@
 .footer__alvp {
   border-radius: 8px;
   padding: 2px 5px;
+  font-family: 'Josefin Sans', sans-serif !important;
+}
+
+h3 {
+  font-family: 'Alex Brush', cursive !important;
+  letter-spacing: 0.2em;
+  font-size: 1.8em !important;
 }
 
 .alvp__icon {

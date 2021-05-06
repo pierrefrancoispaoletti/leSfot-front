@@ -204,6 +204,7 @@ const App = () => {
             </Switch>
             <Divider />
             <Copyright
+              titleColor={titleColor}
               facebookUrl={facebookUrl}
               instagramUrl={instagramUrl}
               email={email}

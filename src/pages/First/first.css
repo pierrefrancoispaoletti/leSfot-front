@@ -15,9 +15,13 @@
   border: 1px solid black;
   border-radius: 8px;
   margin-bottom: 5px;
+  font-family: 'Josefin Sans', sans-serif !important;
+  letter-spacing: 0.1em;
 }
 
 .first > h1 {
   padding: 8px !important;
   border-radius: 8px;
+  font-family: 'Alex Brush', cursive !important;
+  letter-spacing: 0.2em;
 }

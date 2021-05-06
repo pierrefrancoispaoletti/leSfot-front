@@ -17,20 +17,30 @@
 
 .intitule {
   display: inline-block;
+  font-family: 'Josefin Sans', sans-serif !important;
+  letter-spacing: 0.1em;
 }
 
 .price {
   font-size: 1.3em;
+  font-family: 'Josefin Sans', sans-serif !important;
+  letter-spacing: 0.1em;
 }
 
 .description {
   font-size: 1.1em;
+  font-family: 'Josefin Sans', sans-serif !important;
+  letter-spacing: 0.1em;
 }
 
 .allergenes {
   font-size: 1.5em;
+  font-family: 'Josefin Sans', sans-serif !important;
+  letter-spacing: 0.1em;
 }
 
 .allergene {
   font-size: 0.9em;
+  font-family: 'Josefin Sans', sans-serif !important;
+  letter-spacing: 0.1em;
 }
