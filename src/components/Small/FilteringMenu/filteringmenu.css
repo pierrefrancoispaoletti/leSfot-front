@@ -1,4 +1,4 @@
-.navigation {
+/* .navigation {
   overflow-x: auto;
   padding: 8px 0px;
   display: flex;
@@ -33,8 +33,15 @@
 }
 
 .navigation > ul > a>  li > span {
+  display: inline-block;
+  margin-top: 3px;
   line-height: 16px;
   font-size: 14px;
   text-align: center;
   width: 100%;
+} */
+
+
+span {
+  font-family: 'Josefin Sans', sans-serif !important;
 }

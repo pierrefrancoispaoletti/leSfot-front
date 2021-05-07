@@ -1,6 +1,7 @@
 import {
   faBeer,
   faBlender,
+  faBurrito,
   faCocktail,
   faCoffee,
   faCookieBite,
@@ -244,7 +245,7 @@ const categories = [
   {
     name: "Crêpes",
     slug: "crepes",
-    icon: faStroopwafel,
+    icon: faBurrito,
     startHour: 15,
     endHour: 17,
     innerMenu: [],

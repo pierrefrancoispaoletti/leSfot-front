@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import categories from "../../../datas/datas";
 
 const CategoriesMenu = ({
+  backgroundColor,
+  textColor,
+  titleColor,
   children,
   visible,
   setVisible,
@@ -16,6 +19,7 @@ const CategoriesMenu = ({
   return (
     <Sidebar.Pushable>
       <Sidebar
+        style={{ backgroundColor: backgroundColor }}
         as={Menu}
         direction="left"
         animation="overlay"
@@ -29,21 +33,34 @@ const CategoriesMenu = ({
         {categories.map((categorie) => (
           <Link
             style={
-              ((currentHour >= categorie.startHour &&
+              (currentHour >= categorie.startHour &&
                 currentHour <= categorie.endHour) ||
-                currentHour >= categorie.startSecond)
+              currentHour >= categorie.startSecond
                 ? { visibility: "visible" }
-                : !user ? { display: "none" } : {visibility: "visible"}
+                : !user
+                ? { display: "none" }
+                : { visibility: "visible" }
             }
             key={categorie.slug}
             to={`/${categorie.slug}`}
             onClick={() => setCategorie(categorie)}
           >
-            <Menu.Item>
+            <Menu.Item
+              style={{
+                fontFamily: "Josefin Sans, sans-serif",
+                fontSize: "1.1em",
+              }}
+            >
               <Menu.Header>
                 <FontAwesomeIcon
                   size="4x"
-                  style={categorie.style}
+                  style={{
+                    "--fa-primary-color": textColor,
+                    "--fa-secondary-color": titleColor,
+                    "--fa-primary-opacity": 1,
+                    "--fa-secondary-opacity": 1,
+                  }}
+                  // style={categorie.style}
                   icon={categorie.icon}
                 />
               </Menu.Header>

@@ -97,6 +97,9 @@ const App = () => {
             </Message>
           </Transition>
           <CategoriesMenu
+            backgroundColor={backgroundColor}
+            textColor={textColor}
+            titleColor={titleColor}
             user={user}
             currentHour={currentHour}
             visible={visible}

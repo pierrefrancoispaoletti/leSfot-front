@@ -35,7 +35,7 @@ const FilteringMenu = ({
         flexFlow: "row wrap",
         background: productBackgroundColor,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
       }}
     >
       {drinkCat[0].innerMenu.map((cat) => (
@@ -46,12 +46,25 @@ const FilteringMenu = ({
           onClick={handleItemClick}
         >
           <FontAwesomeIcon
-            style={cat.style}
+            style={{
+              "--fa-primary-color": textColor,
+              "--fa-secondary-color": titleColor,
+              "--fa-primary-opacity": 1,
+              "--fa-secondary-opacity": 1,
+            }}
             className="image"
             size="3x"
             icon={cat.icon}
           />
-          <span style={{ color: textColor }}>{cat.title}</span>
+          <span
+            style={{
+              color: textColor,
+              display: "inline-block",
+              marginTop: "3px",
+            }}
+          >
+            {cat.title}
+          </span>
         </Menu.Item>
       ))}
     </Menu>
