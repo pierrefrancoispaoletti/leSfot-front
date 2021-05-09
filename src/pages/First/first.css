@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.first > p {
+.laius {
   width: 100%;
   display: flex;
   font-size: 1.2em;
@@ -17,6 +17,14 @@
   margin-bottom: 5px;
   font-family: 'Josefin Sans', sans-serif !important;
   letter-spacing: 0.1em;
+}
+
+.author {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Alex Brush', cursive !important;
+  font-size: 1.6em;
+  font-weight: 700;
 }
 
 .first > h1 {
