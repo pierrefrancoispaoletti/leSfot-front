@@ -22,7 +22,7 @@ const First = ({ titleColor, textColor, productBackgroundColor }) => {
           background: productBackgroundColor,
         }}
       >
-        Le Soft
+        Bienvenue Au Soft...
       </Header>
       <Divider />
       <Carousel showArrows={true} showThumbs={false} infiniteLoop={true}>
