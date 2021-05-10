@@ -1,7 +1,7 @@
 import { faPalette } from "@fortawesome/pro-duotone-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { CompactPicker } from "react-color";
+import { CompactPicker, SketchPicker } from "react-color";
 import { Accordion, Divider, Header, Icon } from "semantic-ui-react";
 import "./admincolor.css";
 
@@ -34,7 +34,7 @@ const AdminColor = ({
             icon={faPalette}
             size="3x"
             style={{
-              "--fa-primary-color": "blue",
+              "--fa-primary-color": "red",
               "--fa-secondary-color": "saddlebrown",
             }}
           />
@@ -45,13 +45,13 @@ const AdminColor = ({
             <Header as="h2" style={{ color: titleColor }}>
               Couleur des titres de Section
             </Header>
-            <CompactPicker
+            <SketchPicker
               color={titleColor}
               onChangeComplete={(color) => setTitleColor(color.hex)}
             />
             <Divider />
             <p style={{ color: textColor }}>Couleur des textes</p>
-            <CompactPicker
+            <SketchPicker
               color={textColor}
               onChangeComplete={(color) => setTextColor(color.hex)}
             />
@@ -65,7 +65,7 @@ const AdminColor = ({
               }}
             ></div>
             <p>Couleur du fond</p>
-            <CompactPicker
+            <SketchPicker
               color={backgroundColor}
               onChangeComplete={(color) => setBackgroundColor(color.hex)}
             />
@@ -98,7 +98,7 @@ const AdminColor = ({
                 </p>
               </main>
             </div>
-            <CompactPicker
+            <SketchPicker
               color={productBackgroundColor}
               onChangeComplete={(color) => setProductBackgroundColor(color.hex)}
             />

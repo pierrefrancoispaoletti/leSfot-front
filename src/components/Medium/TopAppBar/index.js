@@ -1,3 +1,6 @@
+import { faCogs } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faUser } from "@fortawesome/pro-duotone-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Header, Transition } from "semantic-ui-react";
@@ -15,7 +18,7 @@ const TopAppBar = ({
   return (
     <Container
       className="topappbar"
-      style={{ background: productBackgroundColor}}
+      style={{ background: productBackgroundColor }}
     >
       <Link to="/">
         <Header as="h1">
@@ -29,21 +32,24 @@ const TopAppBar = ({
           visible={user ? true : false}
         >
           <Link to="/le-soft/admin">
-            <Button color="purple" icon="settings" circular />
+            <Button  icon circular>
+              <FontAwesomeIcon icon={faCogs} />
+             </Button>
           </Link>
         </Transition>
-        <Button
-          circular
-          icon="user"
-          color={user ? "blue" : "grey"}
-          onClick={() => setOpenLoginModal(true)}
-        />
-        <Button
-          onClick={() => setVisible(true)}
-          circular
-          icon="bars"
-          color="teal"
-        />
+        <Button  style={
+              user
+                ? { background: "green" }
+                : { background: "" }
+            } circular icon onClick={() => setOpenLoginModal(true)}>
+          <FontAwesomeIcon
+            icon={faUser}
+
+          />
+        </Button>
+        <Button style={{background: titleColor}} onClick={() => setVisible(true)} circular icon>
+          <FontAwesomeIcon icon={faBars} />
+        </Button>
       </div>
     </Container>
   );
