@@ -68,7 +68,7 @@ const Categories = ({
     }
   };
   const handleChangeVisibility = (product) => {
-    let newProduct = { ...product };
+    let { image, ...newProduct } = product;
     newProduct.visibility = !product.visibility;
     const token = localStorage.getItem("token-le-Soft");
     if (token) {
@@ -103,7 +103,15 @@ const Categories = ({
           color="green"
         />
       )}
-      <Header as="h2" style={{ color: titleColor, fontSize: "3em", border: `1px solid ${titleColor}`, background:productBackgroundColor}}>
+      <Header
+        as="h2"
+        style={{
+          color: titleColor,
+          fontSize: "3em",
+          border: `1px solid ${titleColor}`,
+          background: productBackgroundColor,
+        }}
+      >
         {name}
       </Header>
       {categorie === "boissons" && (
@@ -124,42 +132,46 @@ const Categories = ({
       )}
       {!loading &&
         categorie !== "boissons" &&
-        products?.sort((a,b) => a.price - b.price).map((product) => (
-          <Product
-            key={product._id}
-            {...product}
-            user={user}
-            product={product}
-            handleDeleteProduct={handleDeleteProduct}
-            handleChangeVisibility={handleChangeVisibility}
-            setSelectedProduct={setSelectedProduct}
-            setOpenEditProductModal={setOpenEditProductModal}
-            setOpenUpdateImageModal={setOpenUpdateImageModal}
-            setOpenImageModal={setOpenImageModal}
-            titleColor={titleColor}
-            textColor={textColor}
-            productBackgroundColor={productBackgroundColor}
-          />
-        ))}
+        products
+          ?.sort((a, b) => a.price - b.price)
+          .map((product) => (
+            <Product
+              key={product._id}
+              {...product}
+              user={user}
+              product={product}
+              handleDeleteProduct={handleDeleteProduct}
+              handleChangeVisibility={handleChangeVisibility}
+              setSelectedProduct={setSelectedProduct}
+              setOpenEditProductModal={setOpenEditProductModal}
+              setOpenUpdateImageModal={setOpenUpdateImageModal}
+              setOpenImageModal={setOpenImageModal}
+              titleColor={titleColor}
+              textColor={textColor}
+              productBackgroundColor={productBackgroundColor}
+            />
+          ))}
       {!loading &&
         categorie === "boissons" &&
-        filteredProducts?.sort((a,b) => a.price - b.price).map((product) => (
-          <Product
-            key={product._id}
-            {...product}
-            user={user}
-            product={product}
-            handleDeleteProduct={handleDeleteProduct}
-            handleChangeVisibility={handleChangeVisibility}
-            setSelectedProduct={setSelectedProduct}
-            setOpenEditProductModal={setOpenEditProductModal}
-            setOpenUpdateImageModal={setOpenUpdateImageModal}
-            setOpenImageModal={setOpenImageModal}
-            titleColor={titleColor}
-            textColor={textColor}
-            productBackgroundColor={productBackgroundColor}
-          />
-        ))}
+        filteredProducts
+          ?.sort((a, b) => a.price - b.price)
+          .map((product) => (
+            <Product
+              key={product._id}
+              {...product}
+              user={user}
+              product={product}
+              handleDeleteProduct={handleDeleteProduct}
+              handleChangeVisibility={handleChangeVisibility}
+              setSelectedProduct={setSelectedProduct}
+              setOpenEditProductModal={setOpenEditProductModal}
+              setOpenUpdateImageModal={setOpenUpdateImageModal}
+              setOpenImageModal={setOpenImageModal}
+              titleColor={titleColor}
+              textColor={textColor}
+              productBackgroundColor={productBackgroundColor}
+            />
+          ))}
     </Container>
   );
 };

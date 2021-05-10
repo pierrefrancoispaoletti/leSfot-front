@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Checkbox, Form, Header, Icon, Modal, Radio } from "semantic-ui-react";
@@ -14,20 +15,20 @@ const EditProductModal = ({
   setProducts,
   drinkCat,
 }) => {
-  const { _id, title, description, price, tag, category } = product;
+  const { image, ...p } = product;
 
   const [editedProduct, setEditedProduct] = useState({
-    title: title,
-    description: description,
-    price: price,
-    category: category,
-    tag: tag,
+    title: p.title,
+    description: p.description,
+    price: p.price,
+    category: p.category,
+    tag: p.tag,
   });
 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setEditedProduct({ ...product });
+    setEditedProduct({ ...p });
   }, [product]);
 
   const changeProduct = (e) => {
@@ -71,8 +72,8 @@ const EditProductModal = ({
         url: `${$SERVER}/api/products/updateProduct`,
         data: {
           update: editedProduct,
-          productId: _id,
-          productCategory: category,
+          productId: p._id,
+          productCategory: p.category,
         },
         headers: {
           Authorization: "Bearer " + token,
@@ -104,7 +105,7 @@ const EditProductModal = ({
     >
       <Header icon>
         <Icon name="edit" />
-        Éditer {title}
+        Éditer {p.title}
       </Header>
       <Modal.Content>
         <Form onSubmit={handleSubmit} id="addProduct-form">
