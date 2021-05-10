@@ -1,5 +1,5 @@
 import { faCogs } from "@fortawesome/free-solid-svg-icons";
-import { faBars, faUser } from "@fortawesome/pro-duotone-svg-icons";
+import { faBars, faCog, faUser } from "@fortawesome/pro-duotone-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -18,7 +18,7 @@ const TopAppBar = ({
   return (
     <Container
       className="topappbar"
-      style={{ background: productBackgroundColor }}
+      style={{ background: productBackgroundColor}}
     >
       <Link to="/">
         <Header as="h1">
@@ -33,7 +33,7 @@ const TopAppBar = ({
         >
           <Link to="/le-soft/admin">
             <Button  icon circular>
-              <FontAwesomeIcon icon={faCogs} />
+              <FontAwesomeIcon icon={faCog} color="black" />
              </Button>
           </Link>
         </Transition>
