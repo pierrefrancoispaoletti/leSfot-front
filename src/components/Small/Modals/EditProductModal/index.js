@@ -14,14 +14,13 @@ const EditProductModal = ({
   setProducts,
   drinkCat,
 }) => {
-  const { _id, title, description, price, tag, category, image } = product;
+  const { _id, title, description, price, tag, category } = product;
 
   const [editedProduct, setEditedProduct] = useState({
     title: title,
     description: description,
     price: price,
     category: category,
-    image: image,
     tag: tag,
   });
 

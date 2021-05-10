@@ -5,6 +5,7 @@ import {
   faCocktail,
   faCoffee,
   faCookieBite,
+  faCroissant,
   faEye,
   faGlass,
   faGlassCheers,
@@ -27,6 +28,20 @@ const categories = [
     startHour: 11,
     endHour: 14,
     startSecond : 18,
+    innerMenu: [],
+    style: {
+      "--fa-primary-color": "firebrick",
+      "--fa-secondary-color": "chocolate",
+      "--fa-primary-opacity": 1,
+      "--fa-secondary-opacity": 1,
+    },
+  },
+  {
+    name: "Le Petit Dejeuner",
+    slug: "petitdej",
+    icon: faCroissant,
+    startHour: 7,
+    endHour: 11,
     innerMenu: [],
     style: {
       "--fa-primary-color": "firebrick",

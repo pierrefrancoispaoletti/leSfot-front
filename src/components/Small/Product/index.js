@@ -25,7 +25,10 @@ const Product = ({
   return (
     <div
       className="product"
-      style={{ backgroundColor: productBackgroundColor }}
+      style={{
+        backgroundColor: productBackgroundColor,
+        display: product.visibility ? "" : user ? "" : "none",
+      }}
     >
       {user && (
         <AdminCrudButtons
