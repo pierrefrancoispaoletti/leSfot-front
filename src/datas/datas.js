@@ -21,7 +21,7 @@ import {
 
 const categories = [
   {
-    name: "Suggestions du Chef",
+    name: "Les Suggestions du Chef",
     slug: "suggestions",
     icon: faHatChef,
     startHour: 11,
@@ -36,7 +36,7 @@ const categories = [
     },
   },
   {
-    name: "Pizzas",
+    name: "Les Pizzas",
     slug: "pizzas",
     icon: faPizza,
     startHour: 11,
@@ -51,7 +51,7 @@ const categories = [
     },
   },
   {
-    name: "Salades",
+    name: "Les Salades",
     slug: "salades",
     icon: faSalad,
     startHour: 11,
@@ -66,7 +66,7 @@ const categories = [
     },
   },
   {
-    name: "Viandes",
+    name: "Les Viandes",
     slug: "viandes",
     icon: faSteak,
     startHour: 11,
@@ -81,7 +81,7 @@ const categories = [
     },
   },
   {
-    name: "Desserts",
+    name: "Les Desserts",
     slug: "desserts",
     icon: faCookieBite,
     startHour: 0,
@@ -95,7 +95,7 @@ const categories = [
     },
   },
   {
-    name: "Boissons",
+    name: "Les Boissons",
     slug: "boissons",
     icon: faGlassCheers,
     startHour: 0,
@@ -187,7 +187,7 @@ const categories = [
     },
   },
   {
-    name: "Smoothies",
+    name: "Les Smoothies",
     slug: "smoothies",
     icon: faBlender,
     startHour: 0,
@@ -201,7 +201,7 @@ const categories = [
     },
   },
   {
-    name: "Glaces",
+    name: "Les Glaces",
     slug: "glaces",
     icon: faIceCream,
     startHour: 0,
@@ -215,7 +215,7 @@ const categories = [
     },
   },
   {
-    name: "Cocktails",
+    name: "Les Cocktails",
     slug: "cocktails",
     icon: faCocktail,
     startHour: 0,
@@ -229,7 +229,7 @@ const categories = [
     },
   },
   {
-    name: "Gauffres",
+    name: "Les Gauffres",
     slug: "gauffres",
     icon: faStroopwafel,
     startHour: 15,
@@ -243,7 +243,7 @@ const categories = [
     },
   },
   {
-    name: "Crêpes",
+    name: "Les Crêpes",
     slug: "crepes",
     icon: faBurrito,
     startHour: 15,
